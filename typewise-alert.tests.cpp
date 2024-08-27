@@ -1,10 +1,5 @@
 #include <gtest/gtest.h>
 #include "typewise-alert.h"
-std::string captureOutput(void (*func)()) {
-    testing::internal::CaptureStdout();
-    func();
-    return testing::internal::GetCapturedStdout();
-}
 TEST(TypeWiseAlertTestSuite, InfersBreachTooLow) {
     TemperatureRange range = {0, 35};  // lower limit 0, upper limit 35
     EXPECT_EQ(inferBreach(-1, range), TOO_LOW);
